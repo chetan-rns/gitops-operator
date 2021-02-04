@@ -1,9 +1,25 @@
-# OpenShift Gitops Service Operator
+# OpenShift GitOps Operator
 
-The Gitops Service Operator delivers and manages the backend which powers the OpenShift GitOps UI.
-The service would be available at a well-known UI location.
+Red Hat OpenShift GitOps is a declarative continuous delivery platform based on [Argo CD](https://argoproj.github.io/argo-cd/). It enables teams to adopt GitOps principles for managing cluster configurations and automating secure and repeatable application delivery across hybrid multi-cluster OpenShift environments. Following GitOps and infrastructure as code principles, you can store the configuration of clusters and applications in Git repositories and use Git workflows to roll them out to the target clusters.
 
-# Getting started
+OpenShift GitOps Operator manages installation and configuration of components required to adopt GitOps principles on OpenShift. On installation, the operator will deploy and manage the following components
+
+### Components
+
+* [Argo CD](https://github.com/argoproj/argo-cd) for managing GitOps based deployments.
+* [GitOps Application Manager](https://github.com/redhat-developer/kam) CLI to bootstrap a GitOps repository.
+* [GitOps Service](https://github.com/redhat-developer/gitops-backend) which powers OpenShift GitOps UI.
+* [OpenShift Pipelines Operator](https://github.com/openshift/tektoncd-pipeline-operator) for managing Tekton tasks and pipelines.
+
+# Quick Start
+
+## Install the operator from OperatorHub
+
+Go to OperatorHub on OpenShift Webconsole and look for the "OpenShift GitOps" operator
+
+![a relative link](docs/assets/operatorhub-listing.png)
+
+Follow [OperatorHub](docs/operatorhub.md) deployment guide for detailed instructions.
 
 ## Making the operator available on the in-cluster OperatorHub
 
@@ -38,10 +54,9 @@ That's it, your API `route` should be created for you. You don't need to explicl
 
 ## Contribute
 
-
 1. Clone the repository.
-2. Login to a cluster on your command-line.
-3. `OPERATOR_NAME=gitops-operator operator-sdk run local --watch-namespace=openshift-gitops`
+2. Login to your OpenShift cluster on your command-line.
+3. `OPERATOR_NAME=gitops-operator operator-sdk run local --watch-namespace=""`
 
 **Note:** Please check that you're using [operator-sdk]( https://github.com/operator-framework/operator-sdk/releases/tag/v0.17.2) version 0.17 or earlier. Since the community-operators do not support `v1` version of `CustomResourceDefinition`, the operator is using `v1beta1` version of `CustomResourceDefinition`.
 
