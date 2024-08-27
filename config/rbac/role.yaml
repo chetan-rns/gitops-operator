@@ -206,6 +206,7 @@ rules:
   - argoproj.io
   resources:
   - applications
+  - applications/status
   - appprojects
   - argocds
   - argocds/finalizers

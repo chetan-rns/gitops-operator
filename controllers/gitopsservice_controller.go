@@ -151,7 +151,7 @@ type ReconcileGitopsService struct {
 //+kubebuilder:rbac:groups=console.openshift.io,resources=consolelinks,verbs=create;delete;get;list;patch;update;watch
 //+kubebuilder:rbac:groups=console.openshift.io,resources=consoleplugins,verbs=create;delete;get;list;patch;update;watch
 
-//+kubebuilder:rbac:groups=argoproj.io,resources=argocds;argocds/finalizers;argocds/status;applications;appprojects,verbs=get;list;watch;create;delete;patch;update
+//+kubebuilder:rbac:groups=argoproj.io,resources=argocds;argocds/finalizers;argocds/status;applications/status;applications;appprojects,verbs=get;list;watch;create;delete;patch;update
 
 //+kubebuilder:rbac:groups=autoscaling,resources=horizontalpodautoscalers,verbs=get;list;watch;create;delete;patch;update
 //+kubebuilder:rbac:groups=batch,resources=cronjobs;jobs,verbs=get;list;watch;create;delete;patch;update
